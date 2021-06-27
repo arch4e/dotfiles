@@ -1,0 +1,22 @@
+[alias]
+  alias   = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
+  as      = !git add -A && git status
+  br      = branch
+  cancel  = reset --soft HEAD^
+  cam     = commit --amend
+  cm      = commit
+  co      = checkout
+  gl      = log --graph --pretty=oneline
+  gll     = log --graph --all --pretty=oneline
+  wip     = !git commit -m 'wip'
+  st      = status
+  zip     = !git archive HEAD --format=zip --output `git symbolic-ref --short HEAD`.zip
+[core]
+  editor = vim
+[push]
+  default = upstream
+[pull]
+  rebase = false
+[user]
+  name   = 0x04
+  email  = 0x04@example.com
