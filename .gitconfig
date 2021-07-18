@@ -8,8 +8,9 @@
   co      = checkout
   gl      = log --graph --pretty=oneline
   gll     = log --graph --all --pretty=oneline
-  wip     = !git commit -m 'wip'
   st      = status
+  unstage = reset HEAD
+  wip     = !git commit -m 'wip'
   zip     = !git archive HEAD --format=zip --output `git symbolic-ref --short HEAD`.zip
 [core]
   editor = vim
