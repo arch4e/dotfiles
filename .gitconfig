@@ -5,9 +5,12 @@
   cancel  = reset --soft HEAD^
   cam     = commit --amend
   cm      = commit
+  cmm     = commit -m
   co      = checkout
-  gl      = log --graph --pretty=oneline
-  gll     = log --graph --all --pretty=oneline
+  l       = log
+  lg      = log --graph
+  lo      = log --pretty=oneline
+  lgo     = log --graph --pretty=oneline
   st      = status
   unstage = reset HEAD
   wip     = !git commit -m 'wip'
