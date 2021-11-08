@@ -1,27 +1,15 @@
 #!/bin/zsh
 
-set -u
+set -eux
 
-### Symbolic Link ###
-echo "## Symbolic Link ##"
-
+### symbolic link ###
 DOT_FILES=(.gitconfig .zpreztorc .zshrc .vimrc)
   
 for file in ${DOT_FILES[@]}; do
   ln -nfs $HOME/dotfiles/$file $HOME/$file
 done
   
-cat << MSG
-  
---------------------------------------------------
-  DOTFILES SETUP FINISHED!
---------------------------------------------------
- 
-MSG
-
 ### prezto ###
-echo "## prezto ##"
-
 cmd='git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"'
 eval $cmd
 
@@ -30,11 +18,11 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
 
-if [ ! -e {i$HOME/.local} ]; then
+if [ ! -e "$HOME/.local" ]; then
   cmd="mkdir $HOME/.local/"
 fi
 
-### Vim Plugins ###
+### vim plugins ###
 cmd="sh ./vimplugins.sh"
 eval $cmd
 
@@ -44,15 +32,6 @@ eval $cmd
 cmd="chmod +x ./$HOME/vpm/vpm.sh"
 eval $cmd
 cmd="./$HOME/vpm/vpm.sh"
-eval $cmd
-
-
-### Rust ###
-cmd="curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
-eval $cmd
-
-### bat ###
-cmd="cargo install --locked bat"
 eval $cmd
 
 ### gibo ###
@@ -67,11 +46,21 @@ eval $cmd
 cmd="git clone https://github.com/rupa/z $HOME/.local/z"
 eval $cmd
 
+if [ "$(uname)" == 'Darwin' ]; then
+  # macOS
+  cmd='brew install bat ffmpeg gibo git httpie jq n radare2 rsync rust tree wget'
+  eval $cmd
+elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+  # Linux
+  cmd='sudo apt install bat httpie tree'
+else
+fi
+
 # End Msg.
 cat << END
 
 **************************************************
-ALL SETUP FINISHED!
+All settings are completed.
 **************************************************
  
 END
