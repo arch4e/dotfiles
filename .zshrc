@@ -28,6 +28,7 @@ export GIT_EDITOR=vim
 . $HOME/.local/z/z.sh
 
 # alias
+alias py="python3"
 alias gibo="$HOME/.local/gibo/gibo"
 alias vi="vim"
 alias vpm="~/vpm/vpm.sh"
