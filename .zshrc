@@ -14,8 +14,9 @@ setopt HIST_NO_STORE
 # path
 # /usr/local/sbin   : Homebrew (intel)
 # /opt/homebrew/bin : Homebrew ( ARM )
+# /opt/homebrew/sbin: Homebrew ( ARM )
 # $HOME/.cargo/bin  : cargo (Rust)
-export PATH="/usr/local/sbin:/opt/homebrew/bin:$HOME/.cargo/bin:$PATH"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/.cargo/bin:$PATH"
 
 # default Editor
 export EDITOR=vim
