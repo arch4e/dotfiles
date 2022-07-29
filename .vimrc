@@ -23,7 +23,7 @@ set wildmode=list:longest
 set scrolloff=5
 let g:netrw_dirhistmax = 0
 syntax on
-colorscheme peachpuff
+colorscheme nord
 
 "## Tab ##
 set list listchars=tab:>-
