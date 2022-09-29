@@ -3,7 +3,7 @@
 set -eux
 
 ### symbolic link ###
-DOT_FILES=(.gitconfig .tmux.conf .zpreztorc .zshrc .vimrc)
+DOT_FILES=(.alacritty.yml .gitconfig .tmux.conf .zpreztorc .zshrc .vimrc)
   
 for file in ${DOT_FILES[@]}; do
   ln -nfs $HOME/dotfiles/$file $HOME/$file
