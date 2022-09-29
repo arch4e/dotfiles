@@ -3,7 +3,7 @@
 set -eux
 
 ### symbolic link ###
-DOT_FILES=(.gitconfig .zpreztorc .zshrc .vimrc)
+DOT_FILES=(.gitconfig .tmux.conf .zpreztorc .zshrc .vimrc)
   
 for file in ${DOT_FILES[@]}; do
   ln -nfs $HOME/dotfiles/$file $HOME/$file
@@ -48,11 +48,11 @@ eval $cmd
 
 if [ "$(uname)" == 'Darwin' ]; then
   # macOS
-  cmd='brew install bat ffmpeg gibo git httpie jq n radare2 rsync rust tree wget'
+  cmd='brew install bat ffmpeg gibo git httpie jq n radare2 rsync rust tmux tree wget'
   eval $cmd
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   # Linux
-  cmd='sudo apt install bat httpie tree'
+  cmd='sudo apt install bat httpie tmux tree'
 else
 fi
 
