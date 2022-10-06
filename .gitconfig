@@ -7,6 +7,8 @@
   cm      = commit
   cmm     = commit -m
   co      = checkout
+  d       = diff
+  ds      = diff --staged
   l       = log
   lg      = log --graph
   lo      = log --pretty=oneline
