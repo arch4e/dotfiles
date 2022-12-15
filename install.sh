@@ -53,6 +53,10 @@ if [ "$(uname)" == 'Darwin' ]; then
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   # Linux
   cmd='sudo apt install bat httpie tmux tree'
+  eval $cmd
+
+  cmd='curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh'
+  eval $cmd
 else
 fi
 
