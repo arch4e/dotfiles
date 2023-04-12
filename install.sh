@@ -48,7 +48,7 @@ eval $cmd
 
 if [ "$(uname)" == 'Darwin' ]; then
   # macOS
-  cmd='brew install bat ffmpeg gibo git httpie jq n radare2 rsync rust tmux tree wget'
+  cmd='brew install bat ffmpeg gibo git git-lfs httpie jq n radare2 rsync rust tmux tree wget'
   eval $cmd
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   # Linux

@@ -19,6 +19,11 @@
   zip     = !git archive HEAD --format=zip --output `git symbolic-ref --short HEAD`.zip
 [core]
   editor = vim
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [push]
   default = upstream
 [pull]
@@ -26,3 +31,4 @@
 [user]
   name   = ShioN
   email  = shion@arch4e.com
+
