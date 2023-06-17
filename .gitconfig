@@ -1,18 +1,15 @@
 [alias]
   alias   = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
-  as      = !git add -A && git status
+  am      = commit --amend
   br      = branch
   cancel  = reset --soft HEAD^
-  cam     = commit --amend
   cm      = commit
   cmm     = commit -m
-  co      = checkout
   d       = diff
   ds      = diff --staged
   l       = log
-  lg      = log --graph
-  lo      = log --pretty=oneline
-  lgo     = log --graph --pretty=oneline
+  ll      = log --all --graph --pretty=oneline
+  lll     = log --all --graph
   st      = status
   unstage = reset HEAD
   wip     = !git commit -m 'wip'
@@ -20,9 +17,9 @@
 [core]
   editor = vim
 [filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
+  clean    = git-lfs clean -- %f
+  smudge   = git-lfs smudge -- %f
+  process  = git-lfs filter-process
   required = true
 [push]
   default = upstream
