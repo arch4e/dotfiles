@@ -33,3 +33,7 @@ alias py="python3"
 alias gibo="$HOME/.local/gibo/gibo"
 alias vi="vim"
 alias vpm="~/vpm/vpm.sh"
+
+# functions
+autoload -Uz zmv
+
