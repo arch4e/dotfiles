@@ -1,16 +1,15 @@
 # dotfiles
 
-## Installation
+## install
 
-```
+```shell
 git clone --recursive https://gitlab.com/NoIV/dotfiles.git $HOME/dotfiles
 zsh $HOME/dotfiles/install.sh
 ```
 
-## Update
+## documentation
 
-```
-cd $HOME/dotfiles
-git pull
-```
+### macOS
+
+- [Homebrew](https://docs.brew.sh/)
 
