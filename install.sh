@@ -2,48 +2,38 @@
 
 set -eux
 
-### symbolic link ###
-DOT_FILES=(.alacritty.toml .gitconfig .tmux.conf .zpreztorc .zshrc .vimrc)
+# ---------------------------------------------------------------------
+# symbolic link
+# ---------------------------------------------------------------------
+DOT_FILES=(.alacritty.toml .gitconfig .tmux.conf .zshrc .vimrc)
   
 for file in ${DOT_FILES[@]}; do
   ln -nfs $HOME/dotfiles/$file $HOME/$file
 done
   
-### prezto ###
-cmd='git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"'
+# ---------------------------------------------------------------------
+# vim plugin
+# ---------------------------------------------------------------------
+cmd="sh ./vimplugins.sh"
 eval $cmd
 
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
+cmd="git clone https://github.com/arch4e/vpm.git $HOME/vpm"
+eval $cmd
 
+cmd="chmod +x ./$HOME/vpm/vpm.sh"
+eval $cmd
+
+cmd="./$HOME/vpm/vpm.sh"
+eval $cmd
+
+# ---------------------------------------------------------------------
+# gibo
+# ---------------------------------------------------------------------
 if [ ! -e "$HOME/.local" ]; then
   cmd="mkdir $HOME/.local/"
 fi
 
-### vim plugins ###
-cmd="sh ./vimplugins.sh"
-eval $cmd
-
-### vpm ###
-cmd="git clone https://gitlab.com/noiv/vpm.git $HOME/vpm"
-eval $cmd
-cmd="chmod +x ./$HOME/vpm/vpm.sh"
-eval $cmd
-cmd="./$HOME/vpm/vpm.sh"
-eval $cmd
-
-### gibo ###
 cmd="git clone https://github.com/simonwhitaker/gibo.git $HOME/.local/gibo"
-eval $cmd
-
-### fzf ###
-cmd="git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.local/fzf && $HOME/.local/fzf/install --all"
-eval $cmd
-
-### z ###
-cmd="git clone https://github.com/rupa/z $HOME/.local/z"
 eval $cmd
 
 if [ "$(uname)" == 'Darwin' ]; then
@@ -60,7 +50,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
 else
 fi
 
-# End Msg.
+# ---------------------------------------------------------------------
+# message
+# ---------------------------------------------------------------------
 cat << END
 
 **************************************************
@@ -68,3 +60,4 @@ All settings are completed.
 **************************************************
  
 END
+
