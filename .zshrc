@@ -6,11 +6,11 @@ autoload -Uz colors && colors
 # ---------------------------------------------------------------------
 # history
 # ---------------------------------------------------------------------
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_FIND_NO_DUPS
-setopt HIST_REDUCE_BLANKS
-setopt HIST_NO_STORE
+setopt HIST_IGNORE_ALL_DUPS      # Delete an old recorded event if a new event is a duplicate.
+setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
+setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
+setopt HIST_NO_STORE             # Don't store history commands
 
 # ---------------------------------------------------------------------
 # pushd
