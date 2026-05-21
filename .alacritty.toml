@@ -20,13 +20,12 @@ style = "Italic"
 family = "HackGen Console NF"
 style = "Regular"
 
+[selection]
+save_to_clipboard = true
+
 [[mouse.bindings]]
 action = "PasteSelection"
 mouse = "Right"
-
-[[mouse.bindings]]
-action = "Copy"
-mouse = "Middle"
 
 [window.dimensions]
 columns = 160
@@ -35,3 +34,4 @@ lines = 85
 [window.padding]
 x = 7
 y = 7
+
