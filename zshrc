@@ -69,7 +69,8 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z Director-Z}={A-Z a-z}'
 
 # color
-zstyle ':completion:*' list-colors "${LS_COLORS}"
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors "di=0;36"              # macOS
 
 # ---------------------------------------------------------------------
 # alias
