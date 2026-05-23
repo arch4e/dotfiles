@@ -75,7 +75,6 @@ zstyle ':completion:*' list-colors "di=0;36"              # macOS
 # ---------------------------------------------------------------------
 # alias
 # ---------------------------------------------------------------------
-alias gibo="$HOME/.local/gibo/gibo"
 alias ls="ls --color=auto"
 alias mmv='noglob zmv -W'
 alias py="python3"

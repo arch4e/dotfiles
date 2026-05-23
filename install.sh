@@ -26,16 +26,10 @@ eval $cmd
 cmd="./$HOME/vpm/vpm.sh"
 eval $cmd
 
-# ---------------------------------------------------------------------
-# gibo
-# ---------------------------------------------------------------------
-if [ ! -e "$HOME/.local" ]; then
-  cmd="mkdir $HOME/.local/"
-fi
 
-cmd="git clone https://github.com/simonwhitaker/gibo.git $HOME/.local/gibo"
-eval $cmd
-
+# ---------------------------------------------------------------------
+# tools
+# ---------------------------------------------------------------------
 if [ "$(uname)" == 'Darwin' ]; then
   # macOS
   cmd='brew install ffmpeg gibo git git-lfs n rsync tmux tree wget'
