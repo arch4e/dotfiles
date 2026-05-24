@@ -39,7 +39,17 @@ autoload -Uz vcs_info
 
 setopt prompt_subst
 
-precmd() { vcs_info }
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+precmd() {
+    vcs_info
+
+    # ENV
+    PYTHON_VIRTUAL_ENV_STRING=""
+    if [ -n "$VIRTUAL_ENV" ]; then
+        PYTHON_VIRTUAL_ENV_STRING="venv:`basename \"$VIRTUAL_ENV\"`"
+    fi
+}
 
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' check-for-changes true
@@ -50,8 +60,9 @@ zstyle ':vcs_info:git:*' formats     '(%F{green}%b%f%c%u)'
 # %~                 : current directory
 # ${vcs_info_msg_0_} : git info
 PROMPT='
-%F{cyan}%~%f ${vcs_info_msg_0_}
+%F{cyan}%~%f ${vcs_info_msg_0_} %F{246}${PYTHON_VIRTUAL_ENV_STRING}%f
 %(?.%F{magenta}❯%f.%F{red}❯%f) '
+
 
 # ---------------------------------------------------------------------
 # feature
